@@ -1,0 +1,23 @@
+{
+    "name": "gplcart/mobile",
+    "type": "gplcart-module",
+    "description": "GplCart theme for mobile devices",
+    "keywords": ["gplcart", "ecommerce", "shopping cart", "gplcart module", "mobile", "gplcart theme"],
+    "homepage": "https://github.com/gplcart/mobile",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Iurii Makukh",
+            "email": "gplcart.software@gmail.com",
+            "role": "lead"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/gplcart/mobile/issues"
+    },
+    "require": {
+        "gplcart/composer-module-installer": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

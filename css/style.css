@@ -1,0 +1,79 @@
+.url-field {
+    display: none;
+}
+
+.has-error select,
+.has-error input,
+.has-error textarea {
+    border: 1px solid red !important;
+}
+
+.form-group.has-error .help-block {
+    color: red !important;
+}
+
+.required label:before {
+    content:"* ";
+    color: red;
+}
+
+.small {
+    font-size: 80%;
+}
+
+.block {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+.alert-danger {
+    border: 1px solid red;
+}
+
+.alert-warning {
+    border: 1px solid orange;
+}
+
+.alert-success {
+    border: 1px solid green;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.section {
+    margin-bottom: 15px;
+    display: block;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.checkout-review > ul {
+    margin: 10px 0 !important;
+}
+
+.checkout-review img {
+    max-height: 90px;
+    float: left;
+    margin-right: 10px;
+}
+
+.checkout-review .info {
+    float: left;
+}
+
+.compare .item .title {
+    display: none;
+}
+
+img.product-original-image {
+    max-height: 600px;
+}
