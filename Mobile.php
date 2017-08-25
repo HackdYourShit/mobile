@@ -38,10 +38,10 @@ class Mobile extends Module
     public function hookTheme($controller)
     {
         if ($controller->isCurrentTheme('mobile')) {
-            $controller->addAssetLibrary('jquery_mobile');
 
-            $controller->setCss('system/modules/mobile/css/style.css');
-            $controller->setJs($this->getAsset('mobile', 'js', 'common.js'));
+            $controller->addAssetLibrary('jquery_mobile');
+            $controller->setJs($this->getAsset('mobile', 'common.js'));
+            $controller->setCss($this->getAsset('mobile', 'common.css'));
 
             $controller->setMeta(array('charset' => 'utf-8'));
             $controller->setMeta(array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1'));
@@ -77,7 +77,7 @@ class Mobile extends Module
                 continue;
             }
 
-            $asset['file'] = $this->getAsset('mobile', 'js', 'jquery.js');
+            $asset['file'] = $this->getAsset('mobile', 'jquery.js');
             $asset['key'] = $asset['asset'] = str_replace('\\', '/', gplcart_relative_path($asset['file']));
             $data['_js_top'][$asset['key']] = $asset;
 
