@@ -96,7 +96,7 @@
 
     /**
      * Returns an array of selected field values
-     * @returns array
+     * @returns {Array}
      */
     var getSelectedOptions = function () {
 
