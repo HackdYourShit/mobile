@@ -33,6 +33,6 @@
 <?php echo $_pager; ?>
 <?php } else { ?>
 <?php if ($_uid == $user['user_id']) { ?>
-<?php echo $this->text('You have no orders yet. <a href="@href">Shop now</a>', array('@href' => $this->url('catalog'))); ?>
+<?php echo $this->text('You have no orders yet. <a href="@url">Shop now</a>', array('@url' => $this->url('catalog'))); ?>
 <?php } ?>
 <?php } ?>

@@ -92,7 +92,7 @@
       </h1>
       <a id="cart-preview-link" href="#" class="ui-btn ui-btn-right ui-alt-icon ui-nodisc-icon ui-corner-all ui-btn-icon-notext ui-icon-shop"></a>
       <div class="ui-bar">
-        <form action="search">
+        <form action="<?php echo $this->url('search'); ?>">
           <input type="search" name="q" value="" placeholder="<?php echo $this->text('Search'); ?>">
         </form>
       </div>
