@@ -1,5 +1,5 @@
-/* global window, document, GplCart, jQuery */
-(function (window, document, GplCart, $) {
+/* global window, document, Gplcart, jQuery */
+(function (window, document, Gplcart, $) {
 
     "use strict";
 
@@ -12,8 +12,8 @@
      * @returns {String}
      */
     var htmlBtnInCompare = function () {
-        var html = '<a rel="nofollow" href="' + GplCart.settings.base + 'compare" class="ui-btn ui-icon-bullets ui-corner-all ui-btn-icon-right ui-btn-active">';
-        html += GplCart.text('Already in comparison');
+        var html = '<a rel="nofollow" href="' + Gplcart.settings.base + 'compare" class="ui-btn ui-icon-bullets ui-corner-all ui-btn-icon-right ui-btn-active">';
+        html += Gplcart.text('Already in comparison');
         html += '</a>';
         return html;
     };
@@ -24,8 +24,8 @@
      */
     var htmlBtnInWishlist = function () {
 
-        var html = '<a rel="nofollow" href="' + GplCart.settings.base + 'wishlist" class="ui-btn ui-icon-heart ui-corner-all ui-btn-icon-right ui-btn-active">';
-        html += GplCart.text('Already in wishlist');
+        var html = '<a rel="nofollow" href="' + Gplcart.settings.base + 'wishlist" class="ui-btn ui-icon-heart ui-corner-all ui-btn-icon-right ui-btn-active">';
+        html += Gplcart.text('Already in wishlist');
         html += '</a>';
         return html;
     };
@@ -140,10 +140,10 @@
         $.ajax({
             type: 'POST',
             dataType: 'json',
-            url: GplCart.settings.base + 'ajax',
+            url: Gplcart.settings.base + 'ajax',
             data: {
                 action: 'getCartPreviewAjax',
-                token: GplCart.settings.token
+                token: Gplcart.settings.token
             },
             success: function (data) {
                 if (typeof data === 'object' && data.preview) {
@@ -205,12 +205,12 @@
                 data: {
                     values: selected,
                     action: 'switchProductOptionsAjax',
-                    token: GplCart.settings.token,
-                    product_id: GplCart.settings.product.product_id
+                    token: Gplcart.settings.token,
+                    product_id: Gplcart.settings.product.product_id
                 },
                 method: 'POST',
                 dataType: 'json',
-                url: GplCart.settings.base + 'ajax',
+                url: Gplcart.settings.base + 'ajax',
                 success: function (data) {
                     if (typeof data === 'object') {
 
@@ -275,7 +275,7 @@
             $.ajax({
                 type: 'POST',
                 dataType: 'html',
-                url: GplCart.settings.urn,
+                url: Gplcart.settings.urn,
                 data: $('form#checkout').serialize(),
                 success: function (data) {
                     if (data.length) {
@@ -323,7 +323,7 @@
             $.ajax({
                 type: 'POST',
                 dataType: 'json',
-                url: GplCart.settings.urn,
+                url: Gplcart.settings.urn,
                 data: button.closest('form').serialize() + '&' + action + '=1',
                 success: function (data) {
 
@@ -332,7 +332,7 @@
                     }
 
                     if (data.redirect) {
-                        window.location.replace(GplCart.settings.base + data.redirect);
+                        window.location.replace(Gplcart.settings.base + data.redirect);
                         return false;
                     }
 
@@ -379,4 +379,4 @@
         });
     });
 
-})(window, document, GplCart, jQuery);
+})(window, document, Gplcart, jQuery);
