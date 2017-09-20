@@ -57,7 +57,7 @@
         <li>
           <a href="#language-popup" data-rel="popup" data-transition="pop" data-position-to="window">
             <?php if (empty($_languages[$_langcode]['status'])) { ?>
-            <?php echo $this->text('select language'); ?>
+            <?php echo $this->text('Select language'); ?>
             <?php } else { ?>
             <?php echo $this->text('Language'); ?>: <?php echo $this->e($_languages[$_langcode]['name']); ?>
             <?php } ?>
@@ -145,7 +145,7 @@
     <?php } ?>
     <div id="cart-preview-popup" data-role="popup" data-overlay-theme="b">
       <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
-      <div class="popup-container ui-content"><?php echo $this->text('Shopping cart is empty.'); ?></div>
+      <div class="popup-container ui-content"><?php echo $this->text('Shopping cart is empty'); ?></div>
     </div>
     <div id="common-popup" data-role="popup" data-overlay-theme="b">
       <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>

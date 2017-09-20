@@ -1,6 +1,6 @@
 {
     "name": "Mobile",
-    "description": "Theme for mobile devices",
+    "description": "HTML5 theme for mobile devices. Based on jQuery Mobile library",
     "author": "IURII MAKUKH",
     "core": "1.0",
     "type": "theme",

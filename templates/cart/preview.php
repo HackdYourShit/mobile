@@ -8,7 +8,7 @@
 ?>
 <div>
   <?php if (empty($cart['items'])) { ?>
-  <?php echo $this->text('Shopping cart is empty.'); ?>
+  <?php echo $this->text('Shopping cart is empty'); ?>
   <?php } else { ?>
   <ul data-role="listview" data-inset="true">
     <?php foreach ($cart['items'] as $item) { ?>

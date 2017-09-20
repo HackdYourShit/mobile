@@ -34,7 +34,7 @@
   </fieldset>
   <?php if (!empty($has_dynamic_payment_methods)) { ?>
   <button class="ui-btn ui-corner-all ui-icon-refresh ui-btn-icon-right" name="get_payment_methods" value="1">
-    <?php echo $this->text('Get payment services'); ?>
+    <?php echo $this->text('Get services and rates'); ?>
   </button>
   <?php } ?>
 </div>

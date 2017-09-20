@@ -9,7 +9,7 @@
 <div class="ui-grid-b">
   <div class="ui-block-a"><a class="ui-btn ui-corner-all" href="<?php echo $this->url('login'); ?>"><?php echo $this->text('Login'); ?></a></div>
   <div class="ui-block-b"><a class="ui-btn ui-corner-all" href="<?php echo $this->url('register'); ?>"><?php echo $this->text('Register'); ?></a></div>
-  <div class="ui-block-c"><a class="ui-btn ui-corner-all ui-btn-active" href="<?php echo $this->url('forgot'); ?>"><?php echo $this->text('Forgot'); ?></a></div>
+  <div class="ui-block-c"><a class="ui-btn ui-corner-all ui-btn-active" href="<?php echo $this->url('forgot'); ?>"><?php echo $this->text('Forgot password'); ?></a></div>
 </div>
 <form method="post">
   <input type="hidden" name="token" value="<?php echo $_token; ?>">
