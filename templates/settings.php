@@ -69,8 +69,8 @@
       <div class="col-md-4">
         <select name="settings[<?php echo $key; ?>]" class="form-control">
           <option value=""><?php echo $this->text('Default'); ?></option>
-          <?php foreach ($imagestyles as $id => $name) { ?>
-          <option value="<?php echo $this->e($id); ?>"<?php echo $settings[$key] == $id ? ' selected' : ''; ?>><?php echo $this->e($name); ?></option>
+          <?php foreach ($imagestyles as $id => $imagestyle) { ?>
+          <option value="<?php echo $this->e($id); ?>"<?php echo $settings[$key] == $id ? ' selected' : ''; ?>><?php echo $this->e($imagestyle['name']); ?></option>
           <?php } ?>
         </select>
       </div>
@@ -80,14 +80,14 @@
   <div class="form-group">
     <div class="col-md-10 col-md-offset-2">
       <div class="btn-toolbar">
-        <button class="btn btn-danger reset" name="reset" value="1" onclick="return confirm(Gplcart.text('Are you sure?'));">
+        <button class="btn btn-danger reset" name="reset" value="1" onclick="return confirm('<?php echo $this->text('Are you sure?'); ?>');">
           <?php echo $this->text('Reset'); ?>
         </button>
         <a href="<?php echo $this->url('admin/module/list'); ?>" class="btn btn-default cancel">
           <?php echo $this->text('Cancel'); ?>
         </a>
         <button class="btn btn-default save" name="save" value="1">
-          <i class="fa fa-floppy-o"></i> <?php echo $this->text('Save'); ?>
+          <?php echo $this->text('Save'); ?>
         </button>
       </div>
     </div>
