@@ -78,7 +78,7 @@ class Mobile extends Module
             }
 
             $asset['file'] = $this->getAsset('mobile', 'jquery.js');
-            $asset['key'] = $asset['asset'] = str_replace('\\', '/', gplcart_relative_path($asset['file']));
+            $asset['key'] = $asset['asset'] = str_replace('\\', '/', gplcart_path_relative($asset['file']));
             $data['_js_top'][$asset['key']] = $asset;
 
             unset($data['_js_top'][$key]);
