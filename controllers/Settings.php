@@ -42,7 +42,7 @@ class Settings extends BackendController
         $this->setTitleEditSettings();
         $this->setBreadcrumbEditSettings();
 
-        $this->setData('settings', $this->config->module('mobile'));
+        $this->setData('settings', $this->config->getFromModule('mobile'));
         $this->setData('imagestyles', $this->image->getStyleList());
         $this->setData('imagestyle_fields', $this->getImageStyleFieldsSettings());
 
