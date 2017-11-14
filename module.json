@@ -4,6 +4,7 @@
     "author": "IURII MAKUKH",
     "core": "1.0",
     "type": "theme",
+    "framework": "jquery_mobile 1.4",
     "configure": "admin/module/settings/mobile",
     "dependencies": {
         "jquery_mobile": "1.x"
