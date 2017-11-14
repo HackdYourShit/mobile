@@ -32,43 +32,62 @@ class Mobile extends Module
     }
 
     /**
-     * Implements hook "theme"
-     * @param \gplcart\core\controllers\frontend\Controller $controller
-     */
-    public function hookTheme($controller)
-    {
-        if ($controller->isCurrentTheme('mobile')) {
-
-            $controller->addAssetLibrary('jquery_mobile');
-            $controller->setJs($this->getAsset('mobile', 'common.js'));
-            $controller->setCss($this->getAsset('mobile', 'common.css'));
-
-            $controller->setMeta(array('charset' => 'utf-8'));
-            $controller->setMeta(array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1'));
-        }
-    }
-
-    /**
      * Implements hook "template.data"
      * @param array $data
      * @param \gplcart\core\controllers\frontend\Controller $controller
      */
     public function hookTemplateData(array &$data, $controller)
     {
-        // Jquery Mobile 1.4.5 does not work correctly with Jquery 2.2.4
-        // See https://github.com/jquery/jquery/issues/2936
-        // Here we're going to downgrade to version 2.1.4 which is provided by this module
-        if ($controller->isCurrentTheme('mobile') && !empty($data['_js_top'])) {
-            $this->replaceJquery($data);
+        $this->replaceJquery($data, $controller);
+    }
+
+    /**
+     * Implements hook "theme"
+     * @param \gplcart\core\Controller $controller
+     */
+    public function hookTheme($controller)
+    {
+        if ($controller->isCurrentTheme('mobile') && !$controller->isInternalRoute()) {
+            $this->setModuleAssets($controller);
+            $this->setModuleMetaTags($controller);
         }
     }
 
     /**
-     * Replace the system Jquery file
-     * @param array $data
+     * Sets module specific assets
+     * @param \gplcart\core\Controller $controller
      */
-    protected function replaceJquery(array &$data)
+    protected function setModuleAssets($controller)
     {
+        $controller->addAssetLibrary('jquery_mobile');
+        $controller->setJs($this->getAsset('mobile', 'common.js'));
+        $controller->setCss($this->getAsset('mobile', 'common.css'));
+    }
+
+    /**
+     * Sets meta tags
+     * @param \gplcart\core\Controller $controller
+     */
+    protected function setModuleMetaTags($controller)
+    {
+        $controller->setMeta(array('charset' => 'utf-8'));
+        $controller->setMeta(array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1'));
+    }
+
+    /**
+     * Downgrade jQuery
+     * Jquery Mobile 1.4.5 does not work correctly with Jquery 2.2.4
+     * @link https://github.com/jquery/jquery/issues/2936
+     * @param array $data
+     * @param \gplcart\core\controllers\frontend\Controller $controller
+     * @return bool
+     */
+    protected function replaceJquery(array &$data, $controller)
+    {
+        if (!$controller->isCurrentTheme('mobile') || empty($data['_js_top']) || $controller->isInternalRoute()) {
+            return false;
+        }
+
         $jquery = $this->getLibrary()->get('jquery');
 
         foreach ($data['_js_top'] as $key => $asset) {
@@ -78,12 +97,14 @@ class Mobile extends Module
             }
 
             $asset['file'] = $this->getAsset('mobile', 'jquery.js');
-            $asset['key'] = $asset['asset'] = str_replace('\\', '/', gplcart_path_relative($asset['file']));
+            $asset['key'] = $asset['asset'] = gplcart_path_normalize(gplcart_path_relative($asset['file']));
             $data['_js_top'][$asset['key']] = $asset;
 
             unset($data['_js_top'][$key]);
-            break;
+            return true;
         }
+
+        return false;
     }
 
 }
