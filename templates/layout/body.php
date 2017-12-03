@@ -28,7 +28,7 @@
         <li class="cart" data-icon="false">
           <a rel="nofollow" href="<?php echo $this->url('checkout'); ?>">
             <?php echo $this->text('Cart'); ?>
-            <span id="cart-quantity" class="ui-li-count"><?php echo empty($_cart['quantity']) ? 0 : $_cart['quantity']; ?></span>
+            <span id="cart-quantity" class="ui-li-count"><?php echo $_cart['total']; ?></span>
           </a>
         </li>
         <li class="wishlist" data-icon="false">
