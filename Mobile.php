@@ -9,13 +9,27 @@
 
 namespace gplcart\modules\mobile;
 
-use gplcart\core\Module;
+use gplcart\core\Library;
 
 /**
  * Main class for Mobile theme
  */
-class Mobile extends Module
+class Mobile
 {
+
+    /**
+     * Library class instance
+     * @var \gplcart\core\Library $library
+     */
+    protected $library;
+
+    /**
+     * @param Library $library
+     */
+    public function __construct(Library $library)
+    {
+        $this->library = $library;
+    }
 
     /**
      * Implements hook "route.list"
@@ -60,8 +74,8 @@ class Mobile extends Module
     protected function setModuleAssets($controller)
     {
         $controller->addAssetLibrary('jquery_mobile');
-        $controller->setJs($this->getAsset('mobile', 'common.js'));
-        $controller->setCss($this->getAsset('mobile', 'common.css'));
+        $controller->setJs(__DIR__ . '/js/common.js');
+        $controller->setCss(__DIR__ . '/css/common.css');
     }
 
     /**
@@ -88,7 +102,7 @@ class Mobile extends Module
             return false;
         }
 
-        $jquery = $this->getLibrary()->get('jquery');
+        $jquery = $this->library->get('jquery');
 
         foreach ($data['_js_top'] as $key => $asset) {
 
@@ -96,7 +110,7 @@ class Mobile extends Module
                 continue;
             }
 
-            $asset['file'] = $this->getAsset('mobile', 'jquery.js');
+            $asset['file'] = __DIR__ . '/js/jquery.js';
             $asset['key'] = $asset['asset'] = gplcart_path_normalize(gplcart_path_relative($asset['file']));
             $data['_js_top'][$asset['key']] = $asset;
 

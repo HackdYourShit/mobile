@@ -9,7 +9,6 @@
 
 namespace gplcart\modules\mobile\controllers;
 
-use gplcart\core\models\Module as ModuleModel;
 use gplcart\core\controllers\backend\Controller as BackendController;
 
 /**
@@ -19,19 +18,11 @@ class Settings extends BackendController
 {
 
     /**
-     * Module model instance
-     * @var \gplcart\core\models\Module $module
+     * Constructor
      */
-    protected $module;
-
-    /**
-     * @param ModuleModel $module
-     */
-    public function __construct(ModuleModel $module)
+    public function __construct()
     {
         parent::__construct();
-
-        $this->module = $module;
     }
 
     /**
@@ -42,8 +33,8 @@ class Settings extends BackendController
         $this->setTitleEditSettings();
         $this->setBreadcrumbEditSettings();
 
-        $this->setData('settings', $this->config->getFromModule('mobile'));
         $this->setData('imagestyles', $this->image->getStyleList());
+        $this->setData('settings', $this->module->getSettings('mobile'));
         $this->setData('imagestyle_fields', $this->getImageStyleFieldsSettings());
 
         $this->submitSettings();
@@ -91,9 +82,7 @@ class Settings extends BackendController
     {
         $this->controlAccess('module_edit');
         $this->module->setSettings('mobile', array());
-
-        $message = $this->text('Settings have been reset to default values');
-        $this->redirect('', $message, 'success');
+        $this->redirect('', $this->text('Settings have been reset to default values'), 'success');
     }
 
     /**
@@ -102,11 +91,8 @@ class Settings extends BackendController
     protected function updateSettings()
     {
         $this->controlAccess('module_edit');
-
         $this->module->setSettings('mobile', array_filter($this->getSubmitted()));
-
-        $message = $this->text('Settings have been updated');
-        $this->redirect('', $message, 'success');
+        $this->redirect('', $this->text('Settings have been updated'), 'success');
     }
 
     /**
@@ -115,7 +101,6 @@ class Settings extends BackendController
     protected function validateSettings()
     {
         $this->setSubmitted('settings');
-
         $this->validateElement('catalog_limit', 'numeric');
         $this->validateElement('catalog_limit', 'length', array(1, 2));
 
@@ -155,8 +140,7 @@ class Settings extends BackendController
      */
     protected function setTitleEditSettings()
     {
-        $vars = array('%name' => $this->text('Mobile'));
-        $this->setTitle($this->text('Edit %name settings', $vars));
+        $this->setTitle($this->text('Edit %name settings', array('%name' => $this->text('Mobile'))));
     }
 
 }
