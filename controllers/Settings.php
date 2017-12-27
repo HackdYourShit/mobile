@@ -9,6 +9,7 @@
 
 namespace gplcart\modules\mobile\controllers;
 
+use gplcart\core\models\ImageStyle as ImageStyleModel;
 use gplcart\core\controllers\backend\Controller as BackendController;
 
 /**
@@ -18,11 +19,19 @@ class Settings extends BackendController
 {
 
     /**
-     * Constructor
+     * Image style model instance
+     * @var \gplcart\core\models\ImageStyle $image_style
      */
-    public function __construct()
+    protected $image_style;
+
+    /**
+     * @param ImageStyleModel $image_style
+     */
+    public function __construct(ImageStyleModel $image_style)
     {
         parent::__construct();
+
+        $this->image_style = $image_style;
     }
 
     /**
@@ -33,7 +42,7 @@ class Settings extends BackendController
         $this->setTitleEditSettings();
         $this->setBreadcrumbEditSettings();
 
-        $this->setData('imagestyles', $this->image->getStyleList());
+        $this->setData('imagestyles', $this->image_style->getList());
         $this->setData('settings', $this->module->getSettings('mobile'));
         $this->setData('imagestyle_fields', $this->getImageStyleFieldsSettings());
 
