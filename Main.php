@@ -14,7 +14,7 @@ use gplcart\core\Library;
 /**
  * Main class for Mobile theme
  */
-class Module
+class Main
 {
 
     /**
