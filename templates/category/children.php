@@ -11,7 +11,7 @@
   <?php foreach ($children as $child) { ?>
   <li>
     <a href="<?php echo $this->e($child['url']); ?>">
-      <?php if (!empty($child['thumb']) && empty($child['thumb_placeholder'])) { ?>
+      <?php if (!empty($child['thumb'])) { ?>
       <img src="<?php echo $this->e($child['thumb']); ?>">
       <?php } ?>
       <?php echo $this->e($child['title']); ?>
