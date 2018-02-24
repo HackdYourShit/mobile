@@ -13,7 +13,7 @@
 }
 
 .required label:before {
-    content:"* ";
+    content: "* ";
     color: red;
 }
 

@@ -9,13 +9,13 @@
 
 namespace gplcart\modules\mobile\controllers;
 
-use gplcart\core\models\ImageStyle as ImageStyleModel;
-use gplcart\core\controllers\backend\Controller as BackendController;
+use gplcart\core\controllers\backend\Controller;
+use gplcart\core\models\ImageStyle;
 
 /**
  * Handles incoming requests and outputs data related to Mobile theme settings
  */
-class Settings extends BackendController
+class Settings extends Controller
 {
 
     /**
@@ -25,9 +25,10 @@ class Settings extends BackendController
     protected $image_style;
 
     /**
-     * @param ImageStyleModel $image_style
+     * Settings constructor.
+     * @param ImageStyle $image_style
      */
-    public function __construct(ImageStyleModel $image_style)
+    public function __construct(ImageStyle $image_style)
     {
         parent::__construct();
 

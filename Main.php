@@ -9,6 +9,7 @@
 
 namespace gplcart\modules\mobile;
 
+use gplcart\core\Controller;
 use gplcart\core\Library;
 
 /**
@@ -48,9 +49,9 @@ class Main
     /**
      * Implements hook "template.data"
      * @param array $data
-     * @param \gplcart\core\controllers\frontend\Controller $controller
+     * @param \gplcart\core\Controller $controller
      */
-    public function hookTemplateData(array &$data, $controller)
+    public function hookTemplateData(array &$data, Controller $controller)
     {
         $this->replaceJquery($data, $controller);
     }
@@ -59,7 +60,7 @@ class Main
      * Implements hook "theme"
      * @param \gplcart\core\Controller $controller
      */
-    public function hookTheme($controller)
+    public function hookTheme(Controller $controller)
     {
         if ($controller->isCurrentTheme('mobile') && !$controller->isInternalRoute()) {
             $this->setModuleAssets($controller);
@@ -71,7 +72,7 @@ class Main
      * Sets module specific assets
      * @param \gplcart\core\Controller $controller
      */
-    protected function setModuleAssets($controller)
+    protected function setModuleAssets(Controller $controller)
     {
         $controller->addAssetLibrary('jquery_mobile');
         $controller->setJs(__DIR__ . '/js/common.js');
@@ -82,7 +83,7 @@ class Main
      * Sets meta tags
      * @param \gplcart\core\Controller $controller
      */
-    protected function setModuleMetaTags($controller)
+    protected function setModuleMetaTags(Controller $controller)
     {
         $controller->setMeta(array('charset' => 'utf-8'));
         $controller->setMeta(array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1'));
@@ -93,10 +94,10 @@ class Main
      * Jquery Mobile 1.4.5 does not work correctly with Jquery 2.2.4
      * @link https://github.com/jquery/jquery/issues/2936
      * @param array $data
-     * @param \gplcart\core\controllers\frontend\Controller $controller
+     * @param \gplcart\core\Controller $controller
      * @return bool
      */
-    protected function replaceJquery(array &$data, $controller)
+    protected function replaceJquery(array &$data, Controller $controller)
     {
         if (!$controller->isCurrentTheme('mobile') || empty($data['_js_top']) || $controller->isInternalRoute()) {
             return false;

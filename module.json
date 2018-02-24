@@ -1,30 +1,30 @@
 {
-    "name": "Mobile",
-    "description": "HTML5 theme for mobile devices. Based on jQuery Mobile library",
-    "author": "IURII MAKUKH",
-    "core": "1.0",
-    "type": "theme",
-    "framework": "jquery_mobile 1.4",
-    "configure": "admin/module/settings/mobile",
-    "dependencies": {
-        "jquery_mobile": "1.x"
-    },
-    "settings": {
-        "catalog_limit": 20,
-        "catalog_sort": "price",
-        "catalog_order": "asc",
-        "catalog_view": "grid",
-        "image_style_page": 3,
-        "image_style_category": 3,
-        "image_style_category_child": 3,
-        "image_style_product": 3,
-        "image_style_product_grid": 3,
-        "image_style_product_list": 3,
-        "image_style_cart": 3,
-        "image_style_option": 3,
-        "image_style_collection_file": 3,
-        "image_style_collection_page": 3,
-        "image_style_collection_product": 3,
-        "mobile_image_style_popup": 6
-    }
+  "name": "Mobile",
+  "description": "HTML5 theme for mobile devices. Based on jQuery Mobile library",
+  "author": "IURII MAKUKH",
+  "core": "1.0",
+  "type": "theme",
+  "framework": "jquery_mobile 1.4",
+  "configure": "admin/module/settings/mobile",
+  "dependencies": {
+    "jquery_mobile": "1.x"
+  },
+  "settings": {
+    "catalog_limit": 20,
+    "catalog_sort": "price",
+    "catalog_order": "asc",
+    "catalog_view": "grid",
+    "image_style_page": 3,
+    "image_style_category": 3,
+    "image_style_category_child": 3,
+    "image_style_product": 3,
+    "image_style_product_grid": 3,
+    "image_style_product_list": 3,
+    "image_style_cart": 3,
+    "image_style_option": 3,
+    "image_style_collection_file": 3,
+    "image_style_collection_page": 3,
+    "image_style_collection_product": 3,
+    "mobile_image_style_popup": 6
+  }
 }

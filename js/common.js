@@ -363,7 +363,7 @@
     };
 
     /**
-     * Keeps original page title 
+     * Keeps original page title
      * @returns {undefined}
      */
     pageinit.title = function () {
