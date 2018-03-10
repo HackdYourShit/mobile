@@ -10,21 +10,8 @@
     "mobile",
     "gplcart theme"
   ],
-  "homepage": "https://github.com/gplcart/mobile",
   "license": "GPL-3.0-or-later",
-  "authors": [
-    {
-      "name": "Iurii Makukh",
-      "email": "gplcart.software@gmail.com",
-      "role": "lead"
-    }
-  ],
-  "support": {
-    "issues": "https://github.com/gplcart/mobile/issues"
-  },
   "require": {
-    "gplcart/composer-module-installer": "*"
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+    "gplcart/composer-module-installer": "^1"
+  }
 }
