@@ -56,7 +56,7 @@
         <?php if (count($_languages) > 1) { ?>
         <li>
           <a href="#language-popup" data-rel="popup" data-transition="pop" data-position-to="window">
-            <?php if (empty($_languages[$_langcode]['status'])) { ?>
+            <?php if (empty($_languages[$_langcode])) { ?>
             <?php echo $this->text('Select language'); ?>
             <?php } else { ?>
             <?php echo $this->text('Language'); ?>: <?php echo $this->e($_languages[$_langcode]['name']); ?>
@@ -102,7 +102,7 @@
       <?php foreach ($_messages as $type => $strings) { ?>
       <div class="ui-body ui-body-a ui-corner-all section alert alert-<?php echo $this->e($type); ?>">
         <?php foreach ($strings as $string) { ?>
-        <?php echo $this->filter($string); ?><br>
+        <?php echo $string; ?><br>
         <?php } ?>
       </div>
       <?php } ?>
