@@ -106,17 +106,15 @@ class Main
         $jquery = $this->library->get('jquery');
 
         foreach ($data['_js_top'] as $key => $asset) {
+            if (dirname($asset['file']) === $jquery['basepath']) {
 
-            if (dirname($asset['file']) !== $jquery['basepath']) {
-                continue;
+                $asset['file'] = __DIR__ . '/js/jquery.js';
+                $asset['key'] = $asset['asset'] = gplcart_path_normalize(gplcart_path_relative($asset['file']));
+                $data['_js_top'][$asset['key']] = $asset;
+
+                unset($data['_js_top'][$key]);
+                return true;
             }
-
-            $asset['file'] = __DIR__ . '/js/jquery.js';
-            $asset['key'] = $asset['asset'] = gplcart_path_normalize(gplcart_path_relative($asset['file']));
-            $data['_js_top'][$asset['key']] = $asset;
-
-            unset($data['_js_top'][$key]);
-            return true;
         }
 
         return false;
